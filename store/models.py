@@ -11,8 +11,8 @@ class Collection(models.Model):
     featured_product = models.ForeignKey('Product', on_delete=models.SET_NULL, null=True, related_name='+') #related_name='+' not declare reverse relation
 
 class Product(models.Model):
-    sku = models.CharField(primary_key=True, max_length=10)
     title = models.CharField(max_length=255)
+    slug = models.SlugField()
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=6)
     inventory = models.IntegerField()
