@@ -1,13 +1,13 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
 
-def home(request):
-    name = 'Mehfooz Alee'
-    roll =  47
+def calculate():
+    x = 1
+    y = 2
+    return x
 
-    context = {
-        'name' : name,
-        'roll': roll
-    }
-    return render(request, 'home.html', context)
+
+def say_hello(request):
+    x = calculate()
+    return render(request, 'hello.html', {'name': 'Mosh'})
