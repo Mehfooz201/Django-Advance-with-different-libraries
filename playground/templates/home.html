@@ -16,16 +16,26 @@
 
         
         {% if name == 'Mehfooz Ali' %}
-            <h1>Hey, {{name}} !</h1>
+            <h1>Hey, {{name}} - {{products.description}}</h1>
             <p>Roll No. {{roll}}</p>
         {% else %}
             <h1>Hello, world!</h1>
         {% endif %}
 
         <ul>
+          {% comment %} <li>{{products.title}}</li> {% endcomment %}
           
-          {% for product in product %}
-            
+          {% comment %} {% for product in products %}
+
+            <li>{{product.title}}</li>
+          
+          {% endfor %} {% endcomment %}
+
+
+          {% for order in orders %}
+
+            <li>{{order.id}} - {{order.customer.first_name}} </li>
+          
           {% endfor %}
             
         </ul>
