@@ -3,6 +3,7 @@ from . import models
 from django.utils.html import format_html, urlencode
 from django.db.models.aggregates import Count, Max, Min, Avg
 from django.urls import reverse
+from django.contrib.contenttypes.admin import GenericTabularInline
 
 
 
@@ -22,6 +23,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
+    
     #Auto Fileds for search except displaying all data records if we have 1000 data, it will render from 
     #db it will not good practice our website will be load slowly.
     autocomplete_fields = ['collection']
@@ -30,6 +32,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {
         'slug' : ['title']
     } 
+
 
     list_display = ['title', 'unit_price', 'inventory_status', 'collection']
     list_editable = ['unit_price',]
